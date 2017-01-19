@@ -10,7 +10,7 @@ public class ArraySet<E> implements SimpleSet<E> {
 	 * Constructs a new empty set.
 	 */
 	public ArraySet() {
-
+		data = new ArrayList<E>();
 	}
 
 	/** 
@@ -20,7 +20,10 @@ public class ArraySet<E> implements SimpleSet<E> {
 	 * @return true if the specified element was added
 	 */
 	public boolean add(E x) {
-		return false;
+		if(!contains(x))
+			return data.add(x);
+		else
+			return false;
 	}
 
 	/** 
@@ -30,7 +33,8 @@ public class ArraySet<E> implements SimpleSet<E> {
 	 * @return true if the set contained the specified element
 	 */
 	public boolean remove(Object x) {	
-		return false;
+		boolean result = data.remove(x);
+		return result;
 	}
 
 	/** 
@@ -39,7 +43,7 @@ public class ArraySet<E> implements SimpleSet<E> {
 	 * @return	true if this set contains the specified element
 	 */
 	public boolean contains(Object x) {		
-		return false;
+		return data.contains(x);
 	}
 
 
@@ -48,7 +52,7 @@ public class ArraySet<E> implements SimpleSet<E> {
 	 * @return true if this set contains no elements
 	 */
 	public boolean isEmpty() {		
-		return false;
+		return data.isEmpty();
 	}
 
 	/** 
@@ -56,7 +60,7 @@ public class ArraySet<E> implements SimpleSet<E> {
 	 * @return the number of elements in this set
 	 */
 	public int size() {
-		return 0;
+		return data.size();
 	}
 
 	/** 
@@ -64,7 +68,7 @@ public class ArraySet<E> implements SimpleSet<E> {
 	 * @return an iterator over the elements in this set
 	 */
 	public Iterator<E> iterator() {
-		return null;
+		return data.iterator();
 	}
 	
 	/**
@@ -75,7 +79,11 @@ public class ArraySet<E> implements SimpleSet<E> {
 	* @return true if this set changed as a result of the call
 	*/
 	public boolean addAll(SimpleSet<? extends E> s) {
-		return false;
+		boolean result = false;
+		for (E e: s) {
+			if(add(e)) result = true;
+		}
+		return result;
 	}
 
 }
