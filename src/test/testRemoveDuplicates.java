@@ -11,11 +11,11 @@ public class testRemoveDuplicates {
     private int[] check;
 
 
-/*  @Before
+ @Before
    public void setUp() throws Exception{
        test = new int[]{};
        check = new int[]{};
-   }*/
+   }
 
 
   @After
