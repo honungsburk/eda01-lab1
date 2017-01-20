@@ -11,6 +11,7 @@ public class RemoveDuplicates {
 	}
 	
 	public static int[] uniqueElements(int[] ints) {
+		if(ints == null) throw IllegalArgumentException;
 		MaxSet<Integer> ms = new MaxSet<>();
 		for(int i: ints){
 			ms.add(i);
