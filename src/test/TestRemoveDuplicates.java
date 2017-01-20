@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static set.RemoveDuplicates.uniqueElements;
 
-public class testRemoveDuplicates {
+public class TestRemoveDuplicates {
     private int[] test;
     private int[] check;
 
@@ -58,5 +58,13 @@ public class testRemoveDuplicates {
         test = new int[]{5,1,3,2,4,7,6};
         check = new int[]{1,2,3,4,5,6,7};
         assertArrayEquals("false if RemoveDuplicates makes any changes to an already sorted array with only unique numbers", check, uniqueElements(test));
+    }
+    
+    //Testar om uniqueElements ger rätt exception vid input av null.
+    //Detta var det enklaste sättet jag hittade att göra det på.
+    @Test(expected=NullPointerException.class)
+    public final void testInputNull(){
+        test = null;
+        uniqueElements(test);
     }
 }
